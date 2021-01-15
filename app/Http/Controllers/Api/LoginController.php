@@ -31,10 +31,14 @@ class LoginController extends Controller
         return response()->json(['user' => $user], 200);
     }
     public function login(Request $request)
+
     {
+        dd($request);
+
         $this->validate($request, [
             'email' => ['required', 'string', 'email'],
             'password' => ['required', 'string', 'min:8'],
+           
         ]);
         $credentials = request(['email', 'password']);
         if(!Auth::attempt($credentials)){
