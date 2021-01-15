@@ -11,75 +11,22 @@ use Carbon\Carbon;
 // use GuzzleHttp\Client;
 class LoginController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function login()
     {
-        $this->middleware('auth:api')->only('logout');
-    }
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    
-    public function alluser(Request $request){
-        $user = User::all();
-        return response()->json(['user' => $user], 200);
-    }
-    public function login(Request $request)
-
-    {
-        
-
-        $this->validate($request, [
-            'email' => ['required', 'string', 'email'],
-            'password' => ['required', 'string', 'min:8'],
-           
-        ]);
-        $credentials = request(['email', 'password']);
-        if(!Auth::attempt($credentials)){
+        if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
+            $user = Auth::user();
+            $success['token'] ='lkkjn';
             return response()->json([
-                'errors' => [
-                    'email' => ['could not sign you in with those credentials']
-                ]
-            ], 422);
+              'success' => true,
+              'token' => $success,
+              'user' => $user
+          ]);
+        } else {
+          return response()->json([
+            'success' => false,
+            'message' => 'Invalid Email or Password',
+        ], 401);
         }
-        $user = $request->user();
-        $tokenResult = $user->createToken('Personal Access Token');
-        $token = $tokenResult->token;
-        if ($request->remember_me){
-            $token->expires_at = Carbon::now()->addWeeks(1);
-        }
-        $token->save();
-        return response()->json([
-            'data' => $user,
-            'access_token' => $tokenResult->accessToken,
-            'token_type' => 'Bearer',
-            'expires_at' => Carbon::parse(
-                $tokenResult->token->expires_at
-            )->toDateTimeString()
-        ]);
     }
-    public function register(Request $request)
-    {
-        $this->validate($request, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-        dd($request);
-        $user = User::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-        ]);
-        if(!$user){
-            return response()->json(['success' => false, 'message'=> 'Registration failed']);
-        }
-        return response()->json(['success' => true, 'message'=> 'Registration successful']);
-    }
+     
 }
