@@ -11,22 +11,30 @@ use Carbon\Carbon;
 // use GuzzleHttp\Client;
 class LoginController extends Controller
 {
-    public function login()
+   
+
+    public function register(Request $request)
     {
-        if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
-            $user = Auth::user();
-            $success['token'] ='lkkjn';
-            return response()->json([
-              'success' => true,
-              'token' => $success,
-              'user' => $user
-          ]);
-        } else {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required',
+        ]);
+        if ($validator->fails()) {
           return response()->json([
             'success' => false,
-            'message' => 'Invalid Email or vvvfvf',
-        ], 401);
+            'message' => $validator->errors(),
+          ], 401);
         }
+        $input = $request->all();
+        $input['password'] = bcrypt($input['password']);
+        $user = User::create($input); 
+        $success['token'] = $user->createToken('appToken')->accessToken;
+        return response()->json([
+          'success' => true,
+          'token' => $success,
+          'user' => $user
+      ]);
     }
      
 }
