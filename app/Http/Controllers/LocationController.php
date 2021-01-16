@@ -24,7 +24,7 @@ class LocationController extends Controller
        
         $grouped = City::all()
         ->where('area_id','=', $request->area_id)
-        ->first();
+        ;
         return response()->json([
             'success' => true,
             'areas' => $grouped
