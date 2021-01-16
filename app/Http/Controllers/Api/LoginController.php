@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers\Api;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -16,10 +18,10 @@ class LoginController extends Controller
         $request->validate([
             'email' => 'required|string|email',
             'password' => 'required|string',
-        
+
         ]);
         $credentials = request(['email', 'password']);
-        if(!Auth::attempt($credentials))
+        if (!Auth::attempt($credentials))
             return response()->json([
                 'message' => 'Unauthorized'
             ], 401);
@@ -46,20 +48,19 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
         if ($validator->fails()) {
-          return response()->json([
-            'success' => false,
-            'message' => $validator->errors(),
-          ], 401);
+            return response()->json([
+                'success' => false,
+                'message' => $validator->errors(),
+            ], 401);
         }
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
-        $user = User::create($input); 
+        $user = User::create($input);
         $success['token'] = $user->createToken('appToken')->accessToken;
         return response()->json([
-          'success' => true,
-          'token' => $success,
-          'user' => $user
-      ]);
+            'success' => true,
+            'token' => $success,
+            'user' => $user
+        ]);
     }
-     
 }
