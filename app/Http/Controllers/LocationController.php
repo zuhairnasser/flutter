@@ -20,14 +20,14 @@ class LocationController extends Controller
 
     public function cities(Request $request)
     {
-        $area_id = $request->area;
+        
        
         $grouped = City::all()
         ->where('area_id','=', $request->area)
         ->first();
         return response()->json([
             'success' => true,
-            'areas' =>  $grouped 
+            'areas' => $request->area
         ]);
     }
 }
