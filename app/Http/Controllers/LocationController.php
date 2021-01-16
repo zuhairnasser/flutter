@@ -27,7 +27,7 @@ class LocationController extends Controller
         ->first();
         return response()->json([
             'success' => true,
-            'areas' => $request->area
+            'areas' => $request->area['area_id']
         ]);
     }
 }
