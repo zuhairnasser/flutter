@@ -23,5 +23,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['namespace' => 'Api'], function () { 
    
     Route::post('/login', [LoginController::class,'login']);
+    Route::get('/area', [LocationController::class,'areas']);
     Route::post('/register', [LoginController::class,'register']);
 });
