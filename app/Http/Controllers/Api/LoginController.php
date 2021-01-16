@@ -46,6 +46,13 @@ class LoginController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required',
+            'phone' => 'required',
+            'area_id' => 'required',
+            'city_id' => 'required',
+            'gender' => 'required',
+            'identity' => 'required',
+            'birth_date' => 'required',
+            
         ]);
         if ($validator->fails()) {
             return response()->json([
