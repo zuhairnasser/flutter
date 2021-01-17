@@ -22,12 +22,12 @@ class LocationController extends Controller
     {
         
        
-        $grouped = City::all()
-        ->where('area_id','=', $request->area_id)
-        ;
+        // $grouped = City::all()
+        // ->where('area_id','=', $request->area_id);
+        $cities = City::all();
         return response()->json([
             'success' => true,
-            'areas' => $grouped
+            'areas' =>$cities
         ]);
     }
 }
