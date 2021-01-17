@@ -25,6 +25,6 @@ Route::group(['namespace' => 'Api'], function () {
    
     Route::post('/login', [LoginController::class,'login']);
     Route::get('/area', [LocationController::class,'areas']);
-    Route::get('/city/{area_id}', [LocationController::class,'cities']);
+    Route::get('/city', [LocationController::class,'cities']);
     Route::post('/register', [LoginController::class,'register']);
 });
