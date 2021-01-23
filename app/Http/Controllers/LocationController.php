@@ -27,7 +27,7 @@ class LocationController extends Controller
         $cities = City::all();
         return response()->json([
             'success' => true,
-            'areas' =>$cities
+            'cities' =>$cities
         ]);
     }
 }
