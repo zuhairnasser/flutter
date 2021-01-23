@@ -14,7 +14,7 @@ class AreaSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert(
+        DB::table('areas')->insert(
             [
                 'name' => 'الخرطوم',
                 'id' => 1,
