@@ -10,12 +10,14 @@ class HosptialController extends Controller
 {
     public function search(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string',
-        ]);
+        $data = $request->get('name');
 
-        Hospital::query()
-            ->where('name', 'LIKE', "%{$request}%")
-            ->get();
+
+            return response()->json([
+                'success' => true,
+                'hospitals' =>   Hospital::query()
+                ->where('name', 'LIKE', "%{$data}%")
+                ->get()
+            ]);
     }
 }
