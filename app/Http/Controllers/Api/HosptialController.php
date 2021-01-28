@@ -15,9 +15,9 @@ class HosptialController extends Controller
 
             return response()->json([
                 'success' => true,
-                'hospitals' =>   Hospital::query()
-                ->where('name', 'LIKE', "%{$data}%")
-                ->get()
+                // 'hospitals' =>   Hospital::query()
+                // ->where('name', 'LIKE', "%{$data}%")
+                // ->get()
             ]);
     }
 }
