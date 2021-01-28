@@ -13,11 +13,12 @@ class HosptialController extends Controller
         $data = $request->get('name');
 
 
-            return response()->json([
-                'success' => true,
-                'hospitals' =>   Hospital::query()
+        return response()->json([
+            'success' => true,
+            'hospitals' =>   Hospital::query()
                 ->where('name', 'LIKE', "%{$data}%")
-                ->get()
-            ]);
+                ->get(), ['Content-Type' => 'application/json;charset=UTF-8', 'Charset' => 'utf-8'],
+            JSON_UNESCAPED_UNICODE
+        ]);
     }
 }
