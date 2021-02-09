@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hospital;
+use App\Models\Area;
+use App\Models\City;
 use Illuminate\Http\Request;
 
 class HospitalController extends Controller
@@ -24,7 +26,7 @@ class HospitalController extends Controller
      */
     public function create()
     {
-        return view('hospital.create');
+        return view('hospital.create')->with(['states', Area::all()], ['cities', City::all()]);
     }
 
     /**
@@ -41,7 +43,7 @@ class HospitalController extends Controller
 
         Hospital::create([
             'name' => $request->name
-        ]); 
+        ]);
     }
 
     /**
