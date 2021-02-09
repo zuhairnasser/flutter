@@ -8,8 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Area extends Model
 {
     use HasFactory;
-    public function cites(){
+
+    protected $fillable = ['name'];
+
+    public function cites()
+    {
         return $this->hasMany(City::class);
     }
-    
 }

@@ -16,7 +16,11 @@ class CreateHospitalsTable extends Migration
         Schema::create('hospitals', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->double('coordination');
+            $table->integer('area_id');
+            $table->integer('city_id');
+            $table->enum('type',['مستشفى','عيادة']);
+            $table->double('coordination_x');
+            $table->double('coordination_y');
             $table->timestamps();
         });
     }
