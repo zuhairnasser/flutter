@@ -32,16 +32,7 @@
                 </select>
 
             </div>
-            <!-- <div class="form-group">
-                <label class="city" for="city">City</label>
-
-                <select id="city" name="city" class="form-control">
-                @foreach($cities as $city)
-                    <option value="{{$city->id}}">{{$city->name}}</option>
-                   @endforeach
-                </select>
-
-            </div> --> 
+           
             <div class="from-group">
                 <button class="btn btn-success">Add hospital</button>
             </div>
