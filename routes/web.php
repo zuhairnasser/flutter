@@ -16,4 +16,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('hospital', App\Http\Controllers\HospitalController::class);
 Route::resource('cities', App\Http\Controllers\location\CityController::class);
-Route::resource('states', App\Http\Controllers\ocation\StateController::class);
+Route::resource('states', App\Http\Controllers\location\StateController::class);
