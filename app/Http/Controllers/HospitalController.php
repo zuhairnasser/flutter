@@ -43,7 +43,8 @@ class HospitalController extends Controller
 
         Hospital::create([
             'name' => $request->name,
-            'area_id' => $request->state
+            'area_id' => $request->state,
+            'coordination' => '2125235'
         ]);
 
         return  redirect(route('hospital.index'));
