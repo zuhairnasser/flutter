@@ -10,15 +10,18 @@ class HosptialController extends Controller
 {
     public function search(Request $request)
     {
-        $data = $request->get('name');
-
-
+        // $data = $request->get('name');
         return response()->json([
             'success' => true,
-            'hospitals' =>   Hospital::query()
-                ->where('name', 'LIKE', "%{$data}%")
-                ->get(), ['Content-Type' => 'application/json;charset=UTF-8', 'Charset' => 'utf-8'],
-            JSON_UNESCAPED_UNICODE
+            'hospitals' => Hospital::all()
         ]);
+
+        // return response()->json([
+        //     'success' => true,
+        //     'hospitals' =>   Hospital::query()
+        //         ->where('name', 'LIKE', "%{$data}%")
+        //         ->get(), ['Content-Type' => 'application/json;charset=UTF-8', 'Charset' => 'utf-8'],
+        //     JSON_UNESCAPED_UNICODE
+        // ]);
     }
 }
