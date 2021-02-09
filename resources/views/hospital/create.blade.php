@@ -32,7 +32,7 @@
                 </select>
 
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label class="city" for="city">City</label>
 
                 <select id="city" name="city" class="form-control">
@@ -41,7 +41,7 @@
                    @endforeach
                 </select>
 
-            </div>
+            </div> --> 
             <div class="from-group">
                 <button class="btn btn-success">Add hospital</button>
             </div>
