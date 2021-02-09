@@ -16,7 +16,7 @@ class HospitalController extends Controller
      */
     public function index()
     {
-        return view('hospital.index');
+        return view('hospital.index')->with('hospital', Hospital::all());
     }
 
     /**
@@ -42,8 +42,11 @@ class HospitalController extends Controller
         ]);
 
         Hospital::create([
-            'name' => $request->name
+            'name' => $request->name,
+            'area_id' => $request->state
         ]);
+
+        return  redirect(route('hospital.index'));
     }
 
     /**
