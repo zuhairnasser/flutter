@@ -26,7 +26,7 @@ class HospitalController extends Controller
      */
     public function create()
     {
-        return view('hospital.create')->with(['states', Area::all()], ['cities', City::all()]);
+        return view('hospital.create')->with('states', Area::all());
     }
 
     /**
