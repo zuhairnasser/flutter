@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddSpaspecializationToHospitalsTable extends Migration
+class CreateDepartmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class AddSpaspecializationToHospitalsTable extends Migration
      */
     public function up()
     {
-        Schema::table('hospitals', function (Blueprint $table) {
-            $table->string('specialization');
-         
+        Schema::create('departments', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
         });
     }
 
@@ -26,8 +27,6 @@ class AddSpaspecializationToHospitalsTable extends Migration
      */
     public function down()
     {
-        Schema::table('hospitals', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('departments');
     }
 }

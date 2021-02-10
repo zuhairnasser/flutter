@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Hospital;
-use App\Models\State;
-use App\Models\City;
+use App\Models\Department;
 use Illuminate\Http\Request;
 
-class HospitalController extends Controller
+class DepartmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +14,7 @@ class HospitalController extends Controller
      */
     public function index()
     {
-        return view('hospital.index')->with('hospitals', Hospital::all());
+        return view('department.index')->with('departments', Department::all());
     }
 
     /**
@@ -26,13 +24,7 @@ class HospitalController extends Controller
      */
     public function create()
     {
-
-        $data = [
-            'states' => State::all(),
-            'cities' => City::all(),
-
-        ];
-        return view('hospital.create')->with($data);
+        return view('department.create');
     }
 
     /**
@@ -43,22 +35,16 @@ class HospitalController extends Controller
      */
     public function store(Request $request)
     {
-
         $this->validate($request, [
+            'name' => 'required'
+        ]);
+
+        Department::create([
+            'name' => $request->name,
            
         ]);
 
-        Hospital::create([
-            'name' => $request->name,
-            'area_id' => $request->state,
-            'city_id' =>  $request->city,
-            'latitude' => $request->latitude,
-            'type' => $request->type,
-            'longitude' => $request->longitude,
-            'specialization' => $request->specialization,
-        ]);
-
-        return  redirect(route('hospitals.index'));
+        return  redirect(route('departments.index'));
     }
 
     /**

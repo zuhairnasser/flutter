@@ -79,10 +79,16 @@
             @auth
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <ul class="list-group">
                             <li class="list-group-item">
-                                <a href="{{route('hospital.index')}}">Hospitals</a>
+                                <a href="{{route('hospitals.index')}}">Hospitals</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{route('departments.index')}}">Hospital-Departments</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{route('doctors.index')}}">Doctors</a>
                             </li>
                             <li class="list-group-item">
                                 <a href="{{route('cities.index')}}">Cities</a>
@@ -90,9 +96,15 @@
                             <li class="list-group-item">
                                 <a href="{{route('states.index')}}">States</a>
                             </li>
+                            <li class="list-group-item">
+                                <a href="{{route('drugs.index')}}">drugs</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{route('Pharmacies.index')}}">phermacy</a>
+                            </li>
                         </ul>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-9">
                         @yield('content')
                     </div>
                 </div>

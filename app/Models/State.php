@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class City extends Model
+class State extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','state_id'];
 
-    public function area()
+    protected $fillable = ['name'];
+
+    public function cites()
     {
-        return $this->belongsTo(Area::class);
+        return $this->hasMany(City::class);
     }
 }

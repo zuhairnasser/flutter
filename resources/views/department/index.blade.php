@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('content')
 <div class="d-flex justify-content-end mb-2">
-<a href="{{route('cities.create')}}" class="btn btn-success">Add new City</a>
+<a href="{{route('departments.create')}}" class="btn btn-success">Add new department</a>
 </div>
 <div class="card card-defult">
 
     <div class="card-header">
-        Cities
+        Departments
     </div>
     <div class="card-body">
         <table class="table">
@@ -15,24 +15,17 @@
                     Name
                 </th>
                 <th>
-                State
-                </th>
-                <th>
-
                 </th>
             </thead>
             <tbody>
-                @foreach($cities as $city)
+                @foreach($departments as $department)
                 <tr>
                     <td>
-                        {{$city->name}}
+                        {{$department->name}}
                     </td>
                     <td>
-                        {{$city->state_id}}
-                    </td>
-                    <td>
-                        <a href="{{route('cities.edit',$city)}}" class="btn btn-info btn-sm">Edit</a>
-                        <a href="{{route('cities.edit',$city)}}" class="btn btn-danger btn-sm">Delete</a>
+                        <a href="{{route('departments.edit',$department)}}" class="btn btn-info btn-sm">Edit</a>
+                        <a href="{{route('departments.edit',$department)}}" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                 </tr>
                 @endforeach
