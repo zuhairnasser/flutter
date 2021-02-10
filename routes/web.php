@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Location\CityController as CityLocation; 
-use App\Http\Controllers\Location\StateController as StateController; 
+use App\Http\Controllers\location\CityController as CityLocation; 
+use App\Http\Controllers\location\StateController as StateController; 
 
 Route::get('/', function () {
     return view('welcome');
