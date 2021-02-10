@@ -25,7 +25,7 @@ class CityController extends Controller
      */
     public function create()
     {
-        return view('location.cities.create')->with('state', Area::all());;
+        return view('location.cities.create')->with('state', Area::all());
         
     }
 

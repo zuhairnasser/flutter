@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hospital;
+use App\Models\Area;
+use App\Models\City;
 use Illuminate\Http\Request;
 
 class HospitalController extends Controller
@@ -14,7 +16,7 @@ class HospitalController extends Controller
      */
     public function index()
     {
-        return view('hospital.index');
+        return view('hospital.index')->with('hospital', Hospital::all());
     }
 
     /**
@@ -24,7 +26,7 @@ class HospitalController extends Controller
      */
     public function create()
     {
-        return view('hospital.create');
+        return view('hospital.create')->with('states', Area::all());
     }
 
     /**
@@ -40,8 +42,12 @@ class HospitalController extends Controller
         ]);
 
         Hospital::create([
-            'name' => $request->name
-        ]); 
+            'name' => $request->name,
+            'area_id' => $request->state,
+            'coordination' =>5454575
+        ]);
+
+        return  redirect(route('hospital.index'));
     }
 
     /**

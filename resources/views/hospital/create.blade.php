@@ -22,6 +22,17 @@
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" class="form-control mb-2">
             </div>
+            <div class="form-group">
+                <label class="state" for="state">State</label>
+
+                <select id="state" name="state" class="form-control">
+                @foreach($states as $state)
+                    <option value="{{$state->id}}">{{$state->name}}</option>
+                   @endforeach
+                </select>
+
+            </div>
+           
             <div class="from-group">
                 <button class="btn btn-success">Add hospital</button>
             </div>
