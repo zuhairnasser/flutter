@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Area;
 use Illuminate\Http\Request;
 use App\Models\State;
 use App\Models\City;
@@ -14,7 +15,7 @@ class LocationController extends Controller
 
         return response()->json([
             'success' => true,
-            'areas' => State::all()
+            'areas' => Area::all()
         ]);
     }
 
