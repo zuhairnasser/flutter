@@ -15,7 +15,7 @@ class LocationController extends Controller
 
         return response()->json([
             'success' => true,
-            'areas' => State::all()
+            'areas' => Area::all()
         ]);
     }
 
