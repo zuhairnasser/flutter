@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreatePharmacyTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('pharmacy', function (Blueprint $table) {
@@ -23,12 +18,6 @@ class CreatePharmacyTable extends Migration
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('pharmacy');

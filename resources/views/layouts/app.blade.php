@@ -100,7 +100,7 @@
                                 <a href="{{route('drugs.index')}}">drugs</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="{{route('Pharmacies.index')}}">phermacy</a>
+                                <a href="{{route('pharmacies.index')}}">phermacy</a>
                             </li>
                         </ul>
                     </div>

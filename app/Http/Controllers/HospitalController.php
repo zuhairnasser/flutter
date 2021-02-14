@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Hospital;
 use App\Models\State;
 use App\Models\City;
+use App\Models\Pharmacy;
 use Illuminate\Http\Request;
 
 class HospitalController extends Controller
@@ -30,6 +31,7 @@ class HospitalController extends Controller
         $data = [
             'states' => State::all(),
             'cities' => City::all(),
+            
 
         ];
         return view('hospital.create')->with($data);

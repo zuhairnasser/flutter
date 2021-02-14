@@ -25,7 +25,7 @@
             <div class="from-group">
                 <label for="specialization"> specialization
                 </label>
-                <input type="text" id="specialization" name="specialization" class="form-control mb-2">
+                <input type="text" id="specialization" name="specialization" class="form-control mb-2" value="{{$p->name}}">
             </div>
             <div class="form-group">
                 <label class="state" for="state">State</label>
