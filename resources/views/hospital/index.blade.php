@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="d-flex justify-content-end mb-2">
-<a href="{{route('hospitals.create')}}" class="btn btn-success">Add new hosptial</a>
+    <a href="{{route('hospitals.create')}}" class="btn btn-success">Add new hosptial</a>
 </div>
 <div class="card card-defult">
 
@@ -15,7 +15,7 @@
                     Name
                 </th>
                 <th>
-                State
+                    State
                 </th>
                 <th>
 
